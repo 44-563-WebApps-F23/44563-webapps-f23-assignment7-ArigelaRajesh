@@ -140,7 +140,29 @@
                     document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
                     lastCheck = position
                 }
-            }    
+            }
+            function help() {
+                let tsRow = Math.round(treasureLocation/5)
+                let tsCol = treasureLocation%5
+                let lstCRow = Math.round(lastCheck/5)
+                let lstCCol = lastCheck%5
+                let rowDif = Math.abs(lstCRow - tsRow )
+                let colDif = Math.abs(lstCCol - tsCol )
+                let diff =  Math.abs(rowDif - colDif )
+                penalty = penalty +2
+
+                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+                if((rowDif == 0 || colDif == 0) && diff == 1) {
+                    document.getElementById("help").innerHTML = "Can smell it";
+                    return "Can smell it";
+                } else if (rowDif + colDif == 2) {
+                    document.getElementById("help").innerHTML = "Close Matie";
+                    return "Close Matie"
+                } else{
+                    document.getElementById("help").innerHTML = "Step Faster";
+                    return "Step Faster"
+                }
+            }             
         </script>
     </body>
 </html>
