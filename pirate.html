@@ -107,6 +107,40 @@
                 </div>
             </div>                                                                                                                    
         </div>
+        <script>
+            let img_ids = ["1", "2", "3", "4", "5", "6", "7", "8","9", "10", "11", "12", 
+            "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25"];
+            let checkCount = 0
+            let penalty = 0
+            let lastCheck = 0
+            let treasureLocation = 5
+            let trapLocation = 18
+            let gameOver = false
+            console.log(treasureLocation)
+            console.log(trapLocation)
+            function check(position) {
+                if(!gameOver) {
+                    let id = img_ids[position]
+                    let img = document.getElementById(id)
+                    checkCount++
+                    penalty++
+                    if(position == treasureLocation){
+                        img.src = "teasure.jpg"
+                        gameOver = true
+                        penalty-=3
+                    } else if(position == trapLocation){
+                        img.src = "trap.jpg"
+                        gameOver = true
+                        penalty+=4
+                    } else {
+                        img.src = "pirate.jpg"
+                    }
 
+                    document.getElementById("locations").innerHTML = "No of locations checked are: " + checkCount;
+                    document.getElementById("penalty").innerHTML = "Penalty is: " + penalty;
+                    lastCheck = position
+                }
+            }    
+        </script>
     </body>
 </html>
