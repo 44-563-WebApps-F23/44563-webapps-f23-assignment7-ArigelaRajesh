@@ -2,9 +2,17 @@
 <html>
 <head>
 	<title>Merger page</title>
-</head>
-<body style="margin: 10px;">
-	<h2 style="font-family: cursive; color: brown;">Rajesh Arigela builds a merger</h2>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+<body>
+	<h2 class="p-1 m-1 p-1 rounded border border-info border-2 text-light bg-info" style="font-family:fantasy; text-align: center;">
+        Rajesh Arigela builds a merger
+    </h2>
 	<br>
 	<div class="flex-container" id="target">
 		<div class="merger">row item 1</div>
@@ -12,5 +20,39 @@
 		<div class="merger">row item 3</div>
 	</div>
 	<p> Press the button to create an new element of type div and then add it to the container.</p>
+    <button type="button" class="btn btn-outline-success" onclick="addFront()">Add front</button>    
+	<button type="button" class="btn btn-info" onclick="makeNewDiv()">Add end</button>
+	<button type="button" class="btn btn-outline-danger" onclick="remove()">Remove</button>
 </body>
+<script>
+	function makeNewDiv() {
+		let value = document.getElementById("input").value
+		/* make the div and its text */
+		let element = document.createElement("div")
+		element.innerHTML = value 
+		element.className = "merger"
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.appendChild(element)
+
+	}
+	function remove(){
+		let mrgItem = document.getElementsByClassName("merger")
+		let len = mrgItem.len
+		if(len > 0) {
+			let index = Math.floor(len/2)
+			mrgItem[index].remove()
+		}
+	}
+	function addFront(){
+		let value = document.getElementById("input").value
+		/* make the div and its text */
+		let element = document.createElement("div")
+		element.innerHTML = value 
+		element.className = "merger"
+		/* add it to the container */
+		let container = document.getElementById('target')
+		container.insertBefore(element, container.firstChild)
+	}
+</script>
 </html>
