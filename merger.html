@@ -39,6 +39,7 @@
     <button type="button" class="btn btn-outline-success" onclick="addFront()">Add front</button>    
 	<button type="button" class="btn btn-info" onclick="makeNewDiv()">Add end</button>
 	<button type="button" class="btn btn-outline-danger" onclick="remove()">Remove</button>
+    <button type="button" class="btn btn-primary" onclick="swap()">Swap</button>
 </body>
 <script>
 	function makeNewDiv() {
@@ -60,6 +61,13 @@
 			mergerItems[index].remove()
 		}
 	}
+	function swap(){
+        let mergerItems = document.getElementsByClassName("merger");
+        let length = mergerItems.length;
+        let mergerItem = document.getElementsByClassName("merger")[Math.floor(Math.random() * length)];
+        let container = document.getElementById("target");
+        container.insertBefore(mergerItem, container.firstChild);
+    }    
 	function addFront(){
 		let value = document.getElementById("input").value
 		/* make the div and its text */
