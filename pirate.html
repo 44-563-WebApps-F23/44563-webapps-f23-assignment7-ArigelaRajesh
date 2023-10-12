@@ -149,9 +149,9 @@
                 let rowDif = Math.abs(lstCRow - tsRow )
                 let colDif = Math.abs(lstCCol - tsCol )
                 let diff =  Math.abs(rowDif - colDif )
-                penalty = penalty +2
+                penalty+=2
 
-                document.getElementById("penalty").innerHTML = "Penalty is " + penalty;
+                document.getElementById("penalty").innerHTML = "Penalty is" + penalty;
                 if((rowDif == 0 || colDif == 0) && diff == 1) {
                     document.getElementById("help").innerHTML = "Can smell it";
                     return "Can smell it";

@@ -8,13 +8,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style>
+		.flex-container {
+			display: flex;
+			flex-direction: row;
+			background-color: rgb(192, 12, 237);
+		}
+
+		.flex-container>div {
+			/*div children of the flex container*/
+			background-color: #f1f1f1;
+			margin: 5px;
+			padding: 15px;
+			font-size: 25px;
+		}
+	</style>    
   </head>
 <body>
 	<h2 class="p-1 m-1 p-1 rounded border border-info border-2 text-light bg-info" style="font-family:fantasy; text-align: center;">
         Rajesh Arigela builds a merger
-    </h2>
+    </h2><br>
     <input style="font-family:'Times New Roman', Times, serif;" type="text" placeholder="Enter your input here" id="input">
-	<br>
+	<br><br>
 	<div class="flex-container" id="target">
 		<div class="merger">row item 1</div>
 		<div class="merger">row item 2</div>
@@ -38,11 +53,11 @@
 
 	}
 	function remove(){
-		let mrgItem = document.getElementsByClassName("merger")
-		let len = mrgItem.len
-		if(len > 0) {
-			let index = Math.floor(len/2)
-			mrgItem[index].remove()
+		let mergerItems = document.getElementsByClassName("merger")
+		let length = mergerItems.length
+		if(length > 0) {
+			let index = Math.floor(length/2)
+			mergerItems[index].remove()
 		}
 	}
 	function addFront(){
