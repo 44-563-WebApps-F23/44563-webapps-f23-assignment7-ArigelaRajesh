@@ -21,7 +21,7 @@
       <button type="button" class="btn btn-outline-success" onclick="recordTime()">React</button>
     </div>
     <script>
-      let reactTime = undefined;
+      let reactTime = Math.floor((Math.random() * 10) + 2);
   
       function recordTime() {
         reactTime = Date.now()
@@ -41,7 +41,8 @@
           let endTime = Date.now()
           let elpsdTime = endTime - reactTime
           document.getElementById("target").innerHTML = "Time was " + elpsdTime
-        }}, 8000)
+        }
+      }, 8000)
     }      
     </script>
   </body>
