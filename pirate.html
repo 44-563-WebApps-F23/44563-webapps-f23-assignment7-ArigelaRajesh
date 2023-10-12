@@ -18,7 +18,8 @@
             <div id="locations" class="d-inline text-red bg-info border border-2 border-dark">Number of locations checked is zero.</div>
             <div id="penalty" class="d-inline text-dark bg-warning border border-2 border-success">Penalty is zero.</div>
             <div class="btn btn-sm btn-outline-danger" onclick="help()">Click for help.</div>
-            <div id="help" class="d-inline text-light bg-success border border-2 border-primary">Help report.</div>
+            <div id="help" class="d-inline text-light bg-success border border-2 border-primary">Help report.</div><br>
+            <div class="btn btn-outline-success" onclick="reset()">Click here for new game</div>
         </div><br>
         <div class="container" >
             <div class="row">
@@ -113,8 +114,8 @@
             let checkCount = 0
             let penalty = 0
             let lastCheck = 0
-            let treasureLocation = 5
-            let trapLocation = 18
+            let treasureLocation = Math.floor( Math.random()*24)
+            let trapLocation = Math.floor( Math.random()*24)
             let gameOver = false
             console.log(treasureLocation)
             console.log(trapLocation)
@@ -150,7 +151,6 @@
                 let colDif = Math.abs(lstCCol - tsCol )
                 let diff =  Math.abs(rowDif - colDif )
                 penalty+=2
-
                 document.getElementById("penalty").innerHTML = "Penalty is" + penalty;
                 if((rowDif == 0 || colDif == 0) && diff == 1) {
                     document.getElementById("help").innerHTML = "Can smell it";
@@ -162,7 +162,13 @@
                     document.getElementById("help").innerHTML = "Step Faster";
                     return "Step Faster"
                 }
-            }             
+            }
+            function reset(){
+                penalty = 0
+                checkCount = 0
+                trapLocation = Math.floor( Math.random()*24)
+                treasureLocation = Math.floor( Math.random()*24)
+            }                         
         </script>
     </body>
 </html>
