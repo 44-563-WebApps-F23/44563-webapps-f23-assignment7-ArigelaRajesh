@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>setTimeout use</title>
+  <title>Countdown reaction game</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -11,22 +11,41 @@
 </head>
 <body>
     <br>
-    <h2 style="font-family: Arial, Helvetica, sans-serif; color: rgb(6, 247, 251);">Rajesh Arigela speed check</h2>
-    <br>
-    <div class="container-fluid">
-      <div id="target">Your time</div>
-      <div id="counter">Count</div>
-      <button type="button" class="btn btn-danger">Start Timer</button>
-      <button type="button" class="btn btn-success" onclick="recordTime()">React</button>
+    <h2 class="p-1 m-1 p-1 rounded border border-info border-2 text-light bg-dark" style="font-family: Arial, Helvetica, sans-serif; text-align: center;">
+        Rajesh Arigela speed check
+    </h2>
+    <div class="flex-container" style="margin: 5px;">
+      <div id="target" class="p-1 m-1 p-1 rounded border border-dark bg-info text-white">Your time</div>
+      <div id="counter" class="p-1 m-1 p-1 rounded border border-dark bg-warning text-white">Count</div>
+      <button type="button" class="btn btn-outline-danger"  onclick="startTime()">Start Timer</button>
+      <button type="button" class="btn btn-outline-success" onclick="recordTime()">React</button>
     </div>
     <script>
-      let reactTime = Math.floor((Math.random() * 10) + 2);
+      let reactTime = undefined;
   
       function recordTime() {
         reactTime = Date.now()
         console.log(reactTime)
       }
+    function startTime() {
+      for (let i = 0; i < 9; i++) {
+        setTimeout(function () {
+          document.getElementById('counter').innerHTML = "Count: " + i;
+        }, ((8 - i) * 1000));
+      }
+
+      setTimeout(() => {
+        if (reactTime == undefined) {
+          document.getElementById("target").innerHTML = "Too Slow"
+        } else {
+          let endTime = Date.now()
+          let elpsdTime = endTime - reactTime
+          document.getElementById("target").innerHTML = "Time was " + elpsdTime
+        }
+
+      }, 8000)
+
+    }      
     </script>
   </body>
-  
   </html>
